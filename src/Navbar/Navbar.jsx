@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const ref = useRef();
-  console.log(ref.current);
   const navigate = useNavigate();
   const [searchedContent, setSearchedContent] = useState("");
   const searchSubmitHandler = (e) =>{
