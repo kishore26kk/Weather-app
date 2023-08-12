@@ -1,9 +1,7 @@
-import { useNavigate, useParams, useSearchParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import cloud from '../assets/cloudsm.svg';
-
-// const url = 'https://weather-api99.p.rapidapi.com/weather?city=';
-
+import sun from '../assets/sun.svg'
 const options = {
 	method: 'GET',
 	headers: {
@@ -14,13 +12,11 @@ const options = {
 
 const Weather = () => {
     const [weatherData, setWeatherData] = useState({});
-    console.log(weatherData);
     const {city} = useParams();
     const navigate = useNavigate();
-    const {weather} = weatherData;
     const kelvin = weatherData?.main?.temp;
     const celsius = (kelvin - 273.15);
-
+    const weather  = weatherData.weather ? weatherData.weather[0].main : "";
     useEffect(()=>{
         const getWeather = async()=>{
             try{
@@ -29,11 +25,10 @@ const Weather = () => {
                 if(!response.ok) {
                     throw new Error("Something went wrong")
                 }
-                console.log(data);
                 setWeatherData(data);
             }
             catch(err){
-                console.log(err.message)
+                throw new Error(err.message);
             }
         }
         getWeather()
@@ -44,15 +39,15 @@ const Weather = () => {
         <button onClick={()=>navigate("/")} className="text-base bg-violet-600 rounded-full text-white h-12 w-36 mt-5 ml-4">&larr; Go to Home</button>
         <div className= "h-96 w-2/4 mx-auto my-auto bg-slate-200 opacity-40 rounded-2xl flex items-center justify-evenly">
             <div className="h-40 w-52 flex justify-center items-center">
-                
-                <img src={cloud} alt={city}/>
+                {weather === "Clouds" && <img src={cloud} alt={city} />}
+                {weather === "Sunny" && <img src={sun} alt={city} />}
             </div>
             <div className="w-96 h-60 flex flex-col mt-5">
                 <h3 className="text-2xl text-black font-bold opacity-100">Today</h3>
                 <h2 className="text-5xl font-bold">{weatherData.name}</h2>
                 <div className="mt-3 text-lg">
                     <h3 className="text-xl">Temperature : {celsius.toFixed(2)}&#176;C</h3>
-                    <h3>{weather[0]?.description}</h3>
+                    <h3>{weather}</h3>
                 </div> 
             </div>
         </div>

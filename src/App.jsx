@@ -3,6 +3,7 @@ import AppLayout from "./ui/AppLayout"
 import Error from "./ui/Error"
 import Home from "./Home/Home"
 import Weather from "./Weather/Weather"
+import PageNotFound from "./ui/PageNotFound"
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
       },
       {
         path : "/weather/:city",
-        element : <Weather />
+        element : <Weather />,
+        errorElement : <PageNotFound />
       }
     ]
   }
