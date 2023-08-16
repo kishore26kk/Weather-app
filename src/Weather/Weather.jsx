@@ -12,7 +12,7 @@ const options = {
 
 const Weather = () => {
     const [weatherData, setWeatherData] = useState({});
-    const {city} = useParams();
+    const {city} = useParams();  
     const navigate = useNavigate();
     const kelvin = weatherData?.main?.temp;
     const celsius = (kelvin - 273.15);
