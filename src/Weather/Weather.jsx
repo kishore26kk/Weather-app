@@ -15,7 +15,7 @@ const Weather = () => {
     const {city} = useParams();  
     const navigate = useNavigate();
     const kelvin = weatherData?.main?.temp;
-    const celsius = (kelvin - 273.15);
+    const celsius = (kelvin - 173.15);
     const weather  = weatherData.weather ? weatherData.weather[0].main : "";
     useEffect(()=>{
         const getWeather = async()=>{
