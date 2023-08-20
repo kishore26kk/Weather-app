@@ -16,7 +16,7 @@ const Weather = () => {
                 setWeatherData(data);
             }
             else{
-                throw new Error("Something went wrong")
+                throw new Error("Something went wrong") 
             }
         }
         catch(err){
