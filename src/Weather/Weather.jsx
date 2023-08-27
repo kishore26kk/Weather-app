@@ -1,6 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import sun from "../assets/sun.svg";
+import cloudy from "../assets/cloudy.png"
+import cloudsm from "../assets/cloudsm.svg";
+
 // const KEY = "ea0ec28f12d74928b6371112231908"
 
 import Spinner from "../ui/Spinner";
@@ -38,7 +41,9 @@ const Weather = () => {
         <button onClick={()=>navigate("-1")} className="text-base bg-violet-600 rounded-full text-white h-12 w-36 mt-5 ml-4">&larr; Go to Home</button>
         <div className= "h-96 w-2/4 mx-auto my-auto bg-slate-200 opacity-40 rounded-2xl flex items-center justify-evenly">
             <div className="h-40 w-52 flex justify-center items-center">
-                <img src={sun} alt={name} />
+                {text === "Partly cloudy" && <img src={cloudy} alt={name} />}
+                {text === "Clear" && <img src={cloudsm} alt={name} />}
+                {text === "Sunny" && <img src={sun} alt={name} />}
             </div>
             <div className="w-96 h-60 flex flex-col mt-5">
                 <h3 className="text-2xl text-black font-bold opacity-100">Today</h3>
