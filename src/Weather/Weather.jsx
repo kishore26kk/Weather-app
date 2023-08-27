@@ -3,9 +3,6 @@ import { useEffect, useState } from "react";
 import sun from "../assets/sun.svg";
 import cloudy from "../assets/cloudy.png"
 import cloudsm from "../assets/cloudsm.svg";
-
-// const KEY = "ea0ec28f12d74928b6371112231908"
-
 import Spinner from "../ui/Spinner";
 
 const Weather = () => {
@@ -34,7 +31,7 @@ const Weather = () => {
     },[city])
     
     if(!weatherData.location || !weatherData.current) return <Spinner />
-    const {location : {name}, current : {condition : {text}, temp_c}} = weatherData;
+    const {location : {name, country}, current : {condition : {text, icon}, temp_c}} = weatherData;
  
   return (
     <div>
@@ -50,7 +47,11 @@ const Weather = () => {
                 <h2 className="text-5xl font-bold">{name}</h2>
                 <div className="mt-3 text-lg">
                     <h3 className="text-xl">Temperature : {temp_c}&#176;C</h3>
-                    <h3>{text}</h3>
+                    <div className="flex my-2">
+                        <h2>{text}</h2>
+                        <img src={icon} alt="icon" className="h-8"/>
+                    </div>
+                    <h3>{country}</h3>
                 </div> 
             </div>
         </div>
