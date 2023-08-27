@@ -30,7 +30,7 @@ const Weather = () => {
     
     if(!weatherData.location || !weatherData.current) return <p>Loading...</p>
     const {location : {name}, current : {condition : {text}, temp_c}} = weatherData;
-
+ 
   return (
     <div>
         <button onClick={()=>navigate("-1")} className="text-base bg-violet-600 rounded-full text-white h-12 w-36 mt-5 ml-4">&larr; Go to Home</button>
