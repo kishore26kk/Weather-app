@@ -35,8 +35,8 @@ const Weather = () => {
  
   return (
     <div>
-        <button onClick={()=>navigate("-1")} className="text-base bg-violet-600 rounded-full text-white h-12 w-36 mt-5 ml-4">&larr; Go to Home</button>
-        <div className= "h-96 w-2/4 mx-auto my-auto bg-slate-200 opacity-40 rounded-2xl flex items-center justify-evenly">
+        <button onClick={()=>navigate("/")} className="text-base bg-violet-600 rounded-full text-white h-12 w-36 mt-5 ml-4 hover:bg-violet-500">&larr; Go to Home</button>
+        <div className= "h-96 w-2/4 mx-auto my-auto bg-slate-200 opacity-40 rounded-2xl flex items-center justify-evenly shadow-2xl">
             <div className="h-40 w-52 flex justify-center items-center">
                 {text === "Partly cloudy" && <img src={cloudy} alt={name} />}
                 {text === "Clear" && <img src={cloudsm} alt={name} />}
@@ -51,7 +51,7 @@ const Weather = () => {
                         <h2>{text}</h2>
                         <img src={icon} alt="icon" className="h-8"/>
                     </div>
-                    <h3>{country}</h3>
+                    <h3 className="text-lg">{country}</h3>
                 </div> 
             </div>
         </div>

@@ -36,7 +36,7 @@ const Navbar = () => {
       value={searchedContent} 
       ref={ref}
       />
-      <button onClick={searchSubmitHandler} className="rounded-full w-24 bg-violet-600 text-white ml-5">Search</button>
+      <button onClick={searchSubmitHandler} className="rounded-full w-24 bg-violet-600 text-white ml-5 hover:bg-violet-500">Search</button>
       </div>
     </div>
   )
