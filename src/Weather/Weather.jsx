@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import sun from "../assets/sun.svg";
 // const KEY = "ea0ec28f12d74928b6371112231908"
 
+import Spinner from "../ui/Spinner";
+
 const Weather = () => {
     const [weatherData, setWeatherData] = useState({}); 
     const {city} = useParams();  
@@ -26,9 +28,9 @@ const Weather = () => {
 
     useEffect(()=>{
         getWeather()
-    },[])
+    },[city])
     
-    if(!weatherData.location || !weatherData.current) return <p>Loading...</p>
+    if(!weatherData.location || !weatherData.current) return <Spinner />
     const {location : {name}, current : {condition : {text}, temp_c}} = weatherData;
  
   return (
