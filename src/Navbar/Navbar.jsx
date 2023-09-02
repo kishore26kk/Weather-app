@@ -10,7 +10,7 @@ const Navbar = () => {
     if(!searchedContent) return;
     navigate(`/weather/${searchedContent}`)
     setSearchedContent("")
-  }
+  } 
 
   useEffect(()=>{
     const keyListener = (e) => {
