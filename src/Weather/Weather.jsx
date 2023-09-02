@@ -23,7 +23,7 @@ const Weather = () => {
         }
         catch(err){
             throw new Error(err.message);
-        }
+        } 
     }
 
     useEffect(()=>{
