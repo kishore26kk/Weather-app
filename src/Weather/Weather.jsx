@@ -22,7 +22,7 @@ const Weather = () => {
             }
         }
         catch(err){
-            throw new Error(err.message);
+            console.log(err.message);
         } 
     }
 
