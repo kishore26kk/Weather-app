@@ -54,7 +54,7 @@ const Weather = () => {
                     <h3 className="text-lg">{country}</h3>
                 </div> 
             </div>
-        </div>
+        </div> 
     </div>
   )
 }
