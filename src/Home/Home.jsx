@@ -8,7 +8,7 @@ const Home = () => {
       className="text-violet-700 hover:underline" target="blank">Weather</a> update of your City from where ever you want.</i></p>
       <button className="bg-violet-700 text-white h-12 w-28 mt-8 rounded-full font-medium text-lg">Hello</button>
     </div>
-    </>
+    </>        
   )
 } 
 
