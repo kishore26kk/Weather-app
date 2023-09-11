@@ -50,7 +50,7 @@ const Weather = () => {
                     <div className="flex my-2">
                         <h2>{text}</h2>
                         <img src={icon} alt="icon" className="h-8"/>
-                    </div>
+                    </div>   
                     <h3 className="text-lg">{country}</h3>
                 </div> 
             </div>
