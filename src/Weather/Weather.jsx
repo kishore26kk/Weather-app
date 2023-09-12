@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import sun from "../assets/sun.svg";
 import cloudy from "../assets/cloudy.png"
 import cloudsm from "../assets/cloudsm.svg";
@@ -11,8 +11,8 @@ const Weather = () => {
     const [weatherData, setWeatherData] = useState({}); 
     const {city} = useParams();  
     const navigate = useNavigate();
-    
-    const getWeather = async()=>{
+
+    const getWeather = useCallback(async() => {
         try{
             const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`);
             const data = await response.json();
@@ -26,11 +26,11 @@ const Weather = () => {
         catch(err){
             console.log(err.message);
         } 
-    }
+    },[]);
 
     useEffect(()=>{
         getWeather()
-    },[city])
+    },[city,getWeather])
     
     if(!weatherData.location || !weatherData.current) return <Spinner />
     const {location : {name, country}, current : {condition : {text, icon}, humidity, wind_kph, temp_c}} = weatherData;
