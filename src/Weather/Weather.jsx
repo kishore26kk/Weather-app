@@ -5,6 +5,8 @@ import cloudy from "../assets/cloudy.png"
 import cloudsm from "../assets/cloudsm.svg";
 import Spinner from "../ui/Spinner";
 
+const API_KEY = "ea0ec28f12d74928b6371112231908"
+
 const Weather = () => {
     const [weatherData, setWeatherData] = useState({}); 
     const {city} = useParams();  
@@ -12,7 +14,7 @@ const Weather = () => {
     
     const getWeather = async()=>{
         try{
-            const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=ea0ec28f12d74928b6371112231908&q=${city}&aqi=no`);
+            const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`);
             const data = await response.json();
             if(response.ok) {
                 setWeatherData(data);
@@ -31,7 +33,7 @@ const Weather = () => {
     },[city])
     
     if(!weatherData.location || !weatherData.current) return <Spinner />
-    const {location : {name, country}, current : {condition : {text, icon}, temp_c}} = weatherData;
+    const {location : {name, country}, current : {condition : {text, icon}, humidity, wind_kph, temp_c}} = weatherData;
  
   return (
     <div>
@@ -41,8 +43,9 @@ const Weather = () => {
                 {text === "Partly cloudy" && <img src={cloudy} alt={name} />}
                 {text === "Clear" && <img src={cloudsm} alt={name} />}
                 {text === "Sunny" && <img src={sun} alt={name} />}
+                {/* {text === "mist" && <img src={} alt={name}/>} */}
             </div>
-            <div className="w-96 h-60 flex flex-col mt-5">
+            <div className="w-96 h-60 flex flex-col">
                 <h3 className="text-2xl text-black font-bold opacity-100">Today</h3>
                 <h2 className="text-5xl font-bold">{name}</h2>
                 <div className="mt-3 text-lg">
@@ -51,7 +54,9 @@ const Weather = () => {
                         <h2>{text}</h2>
                         <img src={icon} alt="icon" className="h-8"/>
                     </div>   
-                    <h3 className="text-lg">{country}</h3>
+                    <h3 className="text-lg mt-1">{country}</h3>
+                    <h3 className="mt-1">Humidity : {humidity}</h3>
+                    <h3 className="mt-1">Wind Speed : {wind_kph}</h3>
                 </div> 
             </div>
         </div> 
