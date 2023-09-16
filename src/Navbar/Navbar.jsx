@@ -19,7 +19,7 @@ const Navbar = () => {
         navigate(`/weather/${searchedContent}`)
         setSearchedContent("")
       }
-    } 
+    }
     document.addEventListener('keydown',keyListener)
     return ()=>{
       document.removeEventListener('keydown',keyListener)
