@@ -27,10 +27,10 @@ const Navbar = () => {
   },[searchedContent, navigate])
 
   return (
-    <div className="flex justify-center items-center pt-8 pb-8 space-x-4 bg-slate-200">
+    <div className="flex justify-center items-center pt-8 pb-8 space-x-4 bg-slate-200 drop-shadow-2xl">
       <div className="flex">
         <input type="text" className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+      focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500"
       placeholder='Enter a City' 
       onChange={(e)=>setSearchedContent(e.target.value)}
       value={searchedContent} 
