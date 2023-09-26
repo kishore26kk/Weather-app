@@ -45,7 +45,7 @@ const Weather = () => {
                 {text === "Clear" && <img src={cloudsm} alt={name} />}
                 {text === "Sunny" && <img src={sun} alt={name} />}
                 {/* {text === "mist" && <img src={} alt={name}/>} */}
-                {text === "Cloudy" && <img src={cloud} alt={name}/>}
+                {text === "Cloudy" && <img src={cloud} alt={name} />}
             </div>
             <div className="w-96 h-60 flex flex-col">
                 <h3 className="text-2xl text-black font-bold opacity-100">Today</h3>
